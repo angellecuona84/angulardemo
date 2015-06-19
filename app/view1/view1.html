@@ -4,20 +4,20 @@
     <br/>
     <h1>Lista de Personas</h1>
     <div class="wrapper">
-        <div class="contact-item" data-ng-repeat="person in personas | filter:name | orderBy:'city'">
+        <div class="contact-item" data-ng-repeat="person in vm.personas | filter:name | orderBy:'city'">
             <div class="nombre">{{person.name | lowercase}} - {{person.city | uppercase}}</div>
         </div>
     </div>
     <br/>
     <div class="center">
-        <button data-ng-click="mostrarFormulario()" data-ng-hide="formVisibility">Adicionar Persona</button>
+        <button data-ng-click="vm.mostrarFormulario()" data-ng-hide="formVisibility">Adicionar Persona</button>
     </div>
-
-    <div class="wrapper" data-ng-show="formVisibility">
+    <br/>
+    <div class="wrapper" data-ng-show="vm.formVisibility">
         <h2>Adicionar Nueva Persona:</h2>
-        Nombre: <input type="text" data-ng-model="nuevaPersona.name"/>
-        Ciudad: <input type="text" data-ng-model="nuevaPersona.city"/>
-        <button data-ng-click="addPersona()">Adicionar Persona</button>
+        Nombre: <input type="text" data-ng-model="vm.nuevaPersona.name"/>
+        Ciudad: <input type="text" data-ng-model="vm.nuevaPersona.city"/>
+        <button data-ng-click="vm.addPersona()">Adicionar Persona</button>
         <a href="#/view2">View 2</a>
     </div>
 </div>

@@ -1,14 +1,43 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('test.view1', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
-  });
+.config(["$routeProvider", function ($routeProvider){
+   $routeProvider
+      .when('/view1',
+      {
+        controller: 'SimpleController',
+        controllerAs:'vm',
+        templateUrl: 'view1/view1.html'
+      })
+      .when('/view2',{
+        controller: 'SimpleController',
+        templateUrl: 'view2/view2.html'
+      })
+      .otherwise({redirectTo: '/view1'});
 }])
 
-.controller('View1Ctrl', [function() {
+.controller('SimpleController', [function() {
+      var vm = this;
+        vm.personas = [
+        {name:'Angel Lecuona',city:'Lajas'},
+        {name:'Yanet Taramo',city:'Banes'},
+        {name:'Reti Lazara',city:'Otro'}
+      ];
+
+        vm.addPersona = function(){
+            vm.personas.push(
+            {
+              name: vm.nuevaPersona.name,
+              city: vm.nuevaPersona.city
+            });
+            vm.formVisibility = false;
+      };
+
+        vm.formVisibility = false;
+
+        vm.mostrarFormulario = function(){
+            vm.formVisibility = true;
+      };
 
 }]);

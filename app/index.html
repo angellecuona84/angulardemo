@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html data-ng-app="test">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Usando Directivas y Enlaces de Datos con AngularJS </title>
-
     <link rel="stylesheet" href="app.css"/>
 </head>
 <body>
@@ -18,14 +17,18 @@
                 <li data-ng-repeat="person in personas | filter:name | orderBy:'city'"> {{person.name | lowercase}} - {{person.city | uppercase}}</li>
             </ul>
     </div-->
-    <div>
+    <div data-ng-app="test">
         <!-- Placeholders para las Vistas-->
         <div data-ng-view=""></div>
     </div>
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="view1/view1.js"></script>
 
+
+    <!--
     <script>
         var demoTest = angular.module('test',[
                 "ngRoute"
@@ -69,7 +72,8 @@
         }
         demoTest.controller(controllers);
 
-        <!--demoTest.controller('SimpleController', SimpleController)-->
+        <!--demoTest.controller('SimpleController', SimpleController)>
     </script>
+-->
 </body>
 </html>
