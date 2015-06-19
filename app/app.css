@@ -1,0 +1,87 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 100;
+  background: #ccc;
+}
+
+h1{
+  text-align: center;
+  color: #666;
+  text-shadow: 0px 2px 0px #fff;
+}
+
+.nombre{
+  font-size: 18px;
+}
+
+.curso{
+  font-style: italic;
+  font-size: 1px;
+}
+
+.wrapper{
+  width: 650px;
+  margin: 0 auto;
+  box-shadow: 5px 5px 5px #555;
+  background: #fff;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.container{
+  width: 650px;
+  margin: 0 auto;
+}
+
+.center{
+  text-align: center;
+}
+
+.contact-item{
+  border-bottom: thin solid #ccc;
+  padding: 10px;
+}
+
+button{
+  background: #080;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: thin solid #060;
+  "margin: 5px auto"
+}
+
+button:hover{
+  background: #0A0;
+}

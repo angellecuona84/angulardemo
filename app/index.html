@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html data-ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Usando Directivas y Enlaces de Datos con AngularJS </title>
+
+    <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+    <!-- Forma con una sola pagina sin usar placeholders-->
+
+    <!--div data-ng-controller="SimpleController">
+        Nombre:
+        <br/>
+        <input type="text" data-ng-model="name"/>  {{ name }}
+        <br/>
+            <ul>
+                <li data-ng-repeat="person in personas | filter:name | orderBy:'city'"> {{person.name | lowercase}} - {{person.city | uppercase}}</li>
+            </ul>
+    </div-->
+    <div>
+        <!-- Placeholders para las Vistas-->
+        <div data-ng-view=""></div>
+    </div>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+
+    <script>
+        var demoTest = angular.module('test',[
+                "ngRoute"
+        ]);
+
+        demoTest.config(["$routeProvider", function ($routeProvider){
+            $routeProvider
+                    .when('/',
+                    {
+                            controller: 'SimpleController',
+                            templateUrl: 'view1/view1.html'
+                            })
+                    .when('/view2',{
+                            controller: 'SimpleController',
+                            templateUrl: 'view2/view2.html'
+                            })
+                    .otherwise({redirectTo: '/'});
+        }]);
+
+        var controllers = {};
+        controllers.SimpleController = function SimpleController($scope){
+            $scope.personas = [
+                {name:'Angel Lecuona',city:'Lajas'},
+                {name:'Yanet Taramo',city:'Banes'},
+                {name:'Reti Lazara',city:'Otro'}
+            ];
+            $scope.addPersona = function(){
+                $scope.personas.push(
+                        {
+                            name: $scope.nuevaPersona.name,
+                            city: $scope.nuevaPersona.city
+                        });
+                $scope.formVisibility = false;
+            };
+
+            $scope.formVisibility = false;
+
+            $scope.mostrarFormulario = function(){
+                $scope.formVisibility = true;
+            };
+        }
+        demoTest.controller(controllers);
+
+        <!--demoTest.controller('SimpleController', SimpleController)-->
+    </script>
+</body>
+</html>

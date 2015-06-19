@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>View 1</h2>
+    Filtro: <input type="text" data-ng-model="name"/>  {{ name }}
+    <br/>
+    <h1>Lista de Personas</h1>
+    <div class="wrapper">
+        <div class="contact-item" data-ng-repeat="person in personas | filter:name | orderBy:'city'">
+            <div class="nombre">{{person.name | lowercase}} - {{person.city | uppercase}}</div>
+        </div>
+    </div>
+    <br/>
+    <div class="center">
+        <button data-ng-click="mostrarFormulario()" data-ng-hide="formVisibility">Adicionar Persona</button>
+    </div>
+
+    <div class="wrapper" data-ng-show="formVisibility">
+        <h2>Adicionar Nueva Persona:</h2>
+        Nombre: <input type="text" data-ng-model="nuevaPersona.name"/>
+        Ciudad: <input type="text" data-ng-model="nuevaPersona.city"/>
+        <button data-ng-click="addPersona()">Adicionar Persona</button>
+        <a href="#/view2">View 2</a>
+    </div>
+</div>
+
