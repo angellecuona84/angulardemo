@@ -68,6 +68,10 @@ h1{
   text-align: center;
 }
 
+.right{
+  text-align: right;
+}
+
 .contact-item{
   border-bottom: thin solid #ccc;
   padding: 10px;
@@ -84,4 +88,13 @@ button{
 
 button:hover{
   background: #0A0;
+}
+
+.buttonDelete{
+  background: #e84d48;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: thin solid #060;
+"margin: 5px auto"
 }

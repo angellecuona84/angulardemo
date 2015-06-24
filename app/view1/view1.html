@@ -5,8 +5,11 @@
     <h1>Lista de Personas</h1>
     <div class="wrapper">
         <div class="contact-item" data-ng-repeat="person in vm.personas | filter:name | orderBy:'city'">
-            <div class="nombre">{{person.name | lowercase}} - {{person.city | uppercase}}</div>
+            <div class="nombre"> {{person.name | lowercase}} - {{person.city | uppercase}}
+                <button class="btn btn-danger" data-ng-click="vm.eliminar($index)" aria-label="Eliminar">X</button>
+            </div>
         </div>
+
     </div>
     <br/>
     <div class="center">

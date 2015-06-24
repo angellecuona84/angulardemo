@@ -32,6 +32,9 @@ angular.module('test.view1', ['ngRoute'])
               city: vm.nuevaPersona.city
             });
             vm.formVisibility = false;
+
+            vm.nuevaPersona.name = "";
+            vm.nuevaPersona.city = "";
       };
 
         vm.formVisibility = false;
@@ -39,5 +42,9 @@ angular.module('test.view1', ['ngRoute'])
         vm.mostrarFormulario = function(){
             vm.formVisibility = true;
       };
+
+        vm.eliminar = function(index){
+            vm.personas.splice(index,1); 
+        };
 
 }]);
